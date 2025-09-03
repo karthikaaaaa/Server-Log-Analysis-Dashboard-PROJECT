@@ -1,0 +1,44 @@
+[
+    {
+        "time_unit": "2025-01-07",
+        "metrics": {
+            "total_requests": 110,
+            "total_get_requests": 59,
+            "total_post_requests": 30,
+            "time_taken": {
+                "total": {
+                    "max": 1.5,
+                    "min": 0.0,
+                    "average": 0.19155454545454548
+                },
+                "get": {
+                    "max": 1.2,
+                    "min": 0.0,
+                    "average": 0.12049152542372882
+                },
+                "post": {
+                    "max": 1.3,
+                    "min": 0.0,
+                    "average": 0.25116666666666665
+                }
+            },
+            "response_size": {
+                "total": {
+                    "max": 1.55,
+                    "min": 0.0,
+                    "average": 0.20598181818181818
+                },
+                "get": {
+                    "max": 1.25,
+                    "min": 0.0,
+                    "average": 0.13294915254237288
+                },
+                "post": {
+                    "max": 1.35,
+                    "min": 0.0,
+                    "average": 0.2672
+                }
+            }
+        }
+    }
+]

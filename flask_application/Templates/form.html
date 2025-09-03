@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogInsight</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>LogInsight</h2>
+
+        <!-- Form to upload a log file -->
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="logfile">Choose a log file (.txt):</label>
+                <input type="file" class="form-control" name="logfile" id="logfile" required>
+            </div>
+            <button type="submit" class="btn btn-success">Upload File</button>
+        </form>
+
+        <hr>
+
+        <h3>Uploaded Files</h3>
+
+        <!-- List of files with download links -->
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Size (bytes)</th>
+                    <th>Uploaded Date/Time</th>
+                    <th>Download</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if files %}
+                    {% for file in files %}
+                    <tr>
+                        <td>{{ file.name }}</td>
+                        <td>{{ file.size }}</td>
+                        <td>{{ file.timestamp }}</td>
+                        <td><a href="/download/{{ file.name }}" class="btn btn-info">Download JSON</a></td>
+                        <td><a href="/view-analytics/{{ file.name }}" class="btn btn-primary">View Analytics</a></td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5">No files uploaded yet.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
